@@ -1,0 +1,6 @@
+{
+  "name": "Crop Rescuer AI",
+  "description": "India-wide location-intelligent agricultural platform with AI crop disease analysis, location-aware pricing, nearby buyers & mandis, and interactive agri-map.",
+  "requestFramePermissions": ["geolocation", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

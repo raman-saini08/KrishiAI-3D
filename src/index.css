@@ -1,0 +1,339 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0f0d;
+    color: #dfe4e0;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+/* Glassmorphism Styles matching the Crop Rescuer Design Specification */
+.glass-card {
+  background: rgba(28, 33, 30, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(149, 212, 179, 0.12);
+}
+
+.glass-card-hover {
+  transition: all 0.25s ease;
+}
+
+.glass-card-hover:hover {
+  background: rgba(33, 40, 36, 0.8);
+  border-color: rgba(183, 239, 197, 0.3);
+  transform: translateY(-2px);
+}
+
+.glass-card-active {
+  background: rgba(27, 67, 50, 0.55);
+  border-color: rgba(183, 239, 197, 0.45);
+}
+
+.glass-modal {
+  background: rgba(15, 20, 18, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(149, 212, 179, 0.2);
+}
+
+.ai-glow {
+  box-shadow: 0 0 25px rgba(183, 239, 197, 0.18);
+}
+
+.ai-glow-strong {
+  box-shadow: 0 0 35px rgba(183, 239, 197, 0.35);
+}
+
+.ai-glow-border {
+  border-color: #b7efc5;
+  box-shadow: 0 0 15px rgba(183, 239, 197, 0.25);
+}
+
+/* Custom Scrollbar for chips and horizontal lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Scanning line animation */
+@keyframes scanMove {
+  0% {
+    top: 0%;
+    opacity: 0.8;
+  }
+  50% {
+    top: 96%;
+    opacity: 1;
+  }
+  100% {
+    top: 0%;
+    opacity: 0.8;
+  }
+}
+
+.animate-scan-line {
+  animation: scanMove 2.2s infinite ease-in-out;
+}
+
+/* Pulse radar effect */
+@keyframes radarSweep {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.animate-radar {
+  animation: radarSweep 2.5s infinite ease-out;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(14deg); }
+  75% { transform: rotate(-6deg); }
+}
+
+.animate-wave {
+  animation: wave 1.8s infinite;
+  transform-origin: bottom right;
+}
+
+/* 3D Perspective & Spatial Design Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.translate-z-10 {
+  transform: translateZ(10px);
+}
+
+.translate-z-20 {
+  transform: translateZ(20px);
+}
+
+.translate-z-30 {
+  transform: translateZ(30px);
+}
+
+.translate-z-40 {
+  transform: translateZ(40px);
+}
+
+.translate-z-60 {
+  transform: translateZ(60px);
+}
+
+/* 3D Isometric Card Depth Shadows */
+.card-3d-shadow {
+  box-shadow: 
+    0 15px 35px -5px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(183, 239, 197, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+.card-3d-glow-primary {
+  box-shadow: 
+    0 20px 45px -10px rgba(10, 30, 20, 0.8),
+    0 0 35px rgba(183, 239, 197, 0.25),
+    inset 0 1px 2px rgba(183, 239, 197, 0.4);
+}
+
+/* Holographic Metallic Sheen */
+.hologram-sheen {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(183, 239, 197, 0.08) 25%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(82, 183, 136, 0.1) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 200%;
+}
+
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+  }
+}
+
+.animate-float-3d {
+  animation: float3D 6s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0px) translateZ(30px);
+  }
+  50% {
+    transform: translateY(-5px) translateZ(45px);
+  }
+}
+
+.animate-float-badge {
+  animation: floatBadge 3.5s ease-in-out infinite;
+}
+
+/* 3D Embossed Buttons */
+.btn-3d-primary {
+  background: linear-gradient(180deg, #c8f5d4 0%, #b7efc5 40%, #74c69d 100%);
+  color: #0a0f0d;
+  box-shadow: 0 4px 0 #40916c, 0 8px 20px rgba(183, 239, 197, 0.3);
+  transition: all 0.15s ease;
+}
+
+.btn-3d-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #40916c, 0 12px 25px rgba(183, 239, 197, 0.4);
+}
+
+.btn-3d-primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #40916c, 0 4px 10px rgba(183, 239, 197, 0.2);
+}
+
+.btn-3d-dark {
+  background: linear-gradient(180deg, #242c27 0%, #1a201d 60%, #121714 100%);
+  border: 1px solid rgba(149, 212, 179, 0.25);
+  box-shadow: 0 4px 0 #0d120f, 0 8px 16px rgba(0, 0, 0, 0.5);
+  transition: all 0.15s ease;
+}
+
+.btn-3d-dark:hover {
+  transform: translateY(-2px);
+  border-color: rgba(183, 239, 197, 0.5);
+  box-shadow: 0 6px 0 #0d120f, 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.btn-3d-dark:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #0d120f, 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* 3D Cyber-Agri Grid background */
+.agri-grid-bg {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(27, 67, 50, 0.35) 0%, transparent 60%),
+    linear-gradient(to right, rgba(149, 212, 179, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(149, 212, 179, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+.bg-cyber-grid {
+  background-image:
+    linear-gradient(to right, rgba(183, 239, 197, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(183, 239, 197, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 20%,
+    rgba(7, 14, 10, 0.5) 60%,
+    rgba(4, 9, 6, 0.95) 100%
+  );
+}
+
+/* Crop Fields Portal Atmospheric Styling */
+.crop-portal-overlay {
+  background: radial-gradient(
+      ellipse at 50% 30%,
+      rgba(10, 15, 13, 0.65) 0%,
+      rgba(8, 12, 10, 0.88) 55%,
+      rgba(5, 8, 7, 0.96) 100%
+    ),
+    linear-gradient(to bottom, rgba(27, 67, 50, 0.25) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+@keyframes slowPan {
+  0% {
+    transform: scale(1.03) translate(0px, 0px);
+  }
+  50% {
+    transform: scale(1.08) translate(-10px, -8px);
+  }
+  100% {
+    transform: scale(1.03) translate(0px, 0px);
+  }
+}
+
+.animate-slow-pan {
+  animation: slowPan 28s ease-in-out infinite alternate;
+}
+
+@keyframes pollenFloat {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-40px) translateX(15px) rotate(180deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-80px) translateX(-10px) rotate(360deg);
+    opacity: 0.1;
+  }
+}
+
+.pollen-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, #ffe66d 0%, #b7efc5 70%, transparent 100%);
+  animation: pollenFloat 12s infinite linear;
+}
+
